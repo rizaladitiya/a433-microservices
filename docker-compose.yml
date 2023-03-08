@@ -2,27 +2,32 @@ version: "3.7"
 
 services:
 
-  app:
+  item-app:
     depends_on:
-      - mongodb
+      - item-db
+    #restart policy
     restart: unless-stopped
+    #image docker hub
     image: rizaladitiya/item-app:v1
+    #jalankan node
     command: sh -c "npm install && npm start"
+    #port mapping 80
     ports:
       - 80:8080
     environment:
-      - DB_HOST=mongodb
+      - DB_HOST=item-db
       - DB_PORT=27017
     stdin_open: true
     tty: true
       
-  mongodb:
+  item-db:
     restart: unless-stopped
+    #gunakan image mongo:3
     image: mongo:3
     ports:
       - 27017:27017
     volumes:
       - app-db:/data/db
+#pakai volume app-db
 volumes:
   app-db:
-    
