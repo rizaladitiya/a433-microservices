@@ -5,7 +5,7 @@ FROM node:14.21.2-alpine
 WORKDIR /app
 
 #copy working directory ke /app
-COPY . .
+COPY ./app .
 
 #tambah environment variable
 ENV NODE_ENV=production DB_HOST=item-db
