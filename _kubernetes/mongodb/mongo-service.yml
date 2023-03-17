@@ -1,0 +1,19 @@
+# API Version
+apiVersion: v1
+# Kubernetes resource
+kind: Service
+# Deployment metadata resource
+metadata:
+  name: mongo
+  labels:
+    app: mongo
+# Services specifications
+spec:
+  # Port number
+  ports:
+    - port: 27017
+  # Service will proxy traffic to pods that have the label app: mongo
+  selector:
+    app: mongo
+  # Disable the allocation of a cluster IP, service will only be accessible through the endpoints
+  clusterIP: None

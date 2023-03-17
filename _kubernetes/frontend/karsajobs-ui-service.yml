@@ -1,0 +1,21 @@
+# API Version
+apiVersion: v1
+# Kubernetes resource
+kind: Service
+# Deployment metadata resource
+metadata:
+  # Deployment name
+  name: frontend
+  # key-value pairs
+  labels:
+    app: frontend
+# Deployment resource specification
+spec:
+  # Port number
+  ports:
+    - port: 8000
+  # Label selector
+  selector:
+    app: frontend
+  # Expose the service on each Node's IP at a static port
+  type: NodePort
