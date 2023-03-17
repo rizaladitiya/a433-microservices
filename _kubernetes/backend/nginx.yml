@@ -1,0 +1,14 @@
+# API Version
+apiVersion: v1
+# Kubernetes resource
+kind: Pod
+# ConfigMap metadata resource
+metadata:
+    name: nginx
+spec:
+    containers:
+    - name: nginx
+    image: nginx:1.14.2
+    ports:
+    # Port number
+    - containerPort: 80
